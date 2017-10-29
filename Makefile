@@ -109,6 +109,7 @@ ELC_SRCS := \
 	vim.c \
 	ws.c \
 	x86.c \
+	ecpu.c \
 
 ELC_SRCS := $(addprefix target/,$(ELC_SRCS))
 COBJS := $(addprefix out/,$(notdir $(ELC_SRCS:.c=.o)))
@@ -219,7 +220,11 @@ include diff.mk
 
 build: $(TEST_RESULTS)
 
-# Targets
+# Targets 
+ 
+TARGET :=ecpu 
+RUNNER :=elvmcpu
+include target.mk
 
 TARGET := rb
 RUNNER := ruby
